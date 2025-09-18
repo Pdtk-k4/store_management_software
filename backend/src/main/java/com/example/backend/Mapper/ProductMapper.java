@@ -1,4 +1,4 @@
-package com.example.backend.Mapper;
+package com.example.backend.mapper;
 
 public class ProductMapper {
 
