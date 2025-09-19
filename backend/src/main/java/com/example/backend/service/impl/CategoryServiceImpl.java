@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.backend.Mapper.CategoryMapper;
+import com.example.backend.mapper.CategoryMapper;
 import com.example.backend.dto.request.CategoryRequest;
 import com.example.backend.dto.response.CategoryResponse;
 import com.example.backend.entity.Category;

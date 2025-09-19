@@ -1,4 +1,4 @@
-package com.example.backend.Mapper;
+package com.example.backend.mapper;
 
 import java.util.List;
 

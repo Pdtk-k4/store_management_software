@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.backend.Mapper.BrandMapper;
+import com.example.backend.mapper.BrandMapper;
 import com.example.backend.dto.request.BrandRequest;
 import com.example.backend.dto.response.BrandResponse;
 import com.example.backend.entity.Brand;

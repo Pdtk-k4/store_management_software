@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.backend.Mapper.PriceMapper;
+import com.example.backend.mapper.PriceMapper;
 import com.example.backend.dto.request.PriceRequest;
 import com.example.backend.dto.response.PriceResponse;
 import com.example.backend.entity.Price;
