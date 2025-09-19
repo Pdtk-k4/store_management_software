@@ -7,5 +7,5 @@ import com.example.backend.entity.Category;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
-    boolean existsCategoryName(String categoryName);
+    boolean existsByCategoryName(String categoryName);
 }

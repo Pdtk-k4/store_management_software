@@ -23,7 +23,7 @@ public class BranServiceImpl implements BrandService {
     @Override
     public BrandResponse createBrand(BrandRequest brandRequest) {
 
-        if (brandRepository.existsBranName(brandRequest.getBrandName())) {
+        if (brandRepository.existsByBrandName(brandRequest.getBrandName())) {
             throw new RuntimeException("Brand name đã tôn tại");
         }
         Brand brand = brandMapper.toEntity(brandRequest);
@@ -37,7 +37,7 @@ public class BranServiceImpl implements BrandService {
         Brand existing = brandRepository.findById(brandId)
                 .orElseThrow(() -> new RuntimeException("Không tìm thấy brand : " + brandId));
         if (!existing.getBrandName().equals(brandRequest.getBrandName())
-                && brandRepository.existsBranName(brandRequest.getBrandName())) {
+                && brandRepository.existsByBrandName(brandRequest.getBrandName())) {
             throw new RuntimeException("Brand name đã tôn tại");
         }
         brandMapper.updateEntityFromDTO(existing, brandRequest);

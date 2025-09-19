@@ -21,7 +21,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryResponse createCategory(CategoryRequest categoryRequest) {
-        if (categoryRepository.existsCategoryName(categoryRequest.getCategoryName())) {
+        if (categoryRepository.existsByCategoryName(categoryRequest.getCategoryName())) {
             throw new RuntimeException("Category name đã tôn tại");
         }
         Category category = categoryMapper.toEntity(categoryRequest);
@@ -34,7 +34,7 @@ public class CategoryServiceImpl implements CategoryService {
         Category existing = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new RuntimeException("Không tìm thấy category : " + categoryId));
         if (!existing.getCategoryName().equals(categoryRequest.getCategoryName())
-                && categoryRepository.existsCategoryName(categoryRequest.getCategoryName())) {
+                && categoryRepository.existsByCategoryName(categoryRequest.getCategoryName())) {
             throw new RuntimeException("Category name đã tôn tại");
         }
         categoryMapper.updateEntityFromDTO(categoryRequest, existing);

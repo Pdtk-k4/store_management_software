@@ -21,7 +21,7 @@ public class UnitServiceImpl implements UnitService {
 
     @Override
     public UnitResponse createUnit(UnitRequest unitRequest) {
-        if (unitRepository.existsUnitName(unitRequest.getUnitName())) {
+        if (unitRepository.existsByUnitName(unitRequest.getUnitName())) {
             throw new RuntimeException("Unit name đã tôn tại");
         }
         Unit unit = unitMapper.toEntity(unitRequest);
@@ -34,7 +34,7 @@ public class UnitServiceImpl implements UnitService {
         Unit existing = unitRepository.findById(unitId)
                 .orElseThrow(() -> new RuntimeException("Không tìm thấy unit : " + unitId));
         if (!existing.getUnitName().equals(unitRequest.getUnitName())
-                && unitRepository.existsUnitName(unitRequest.getUnitName())) {
+                && unitRepository.existsByUnitName(unitRequest.getUnitName())) {
             throw new RuntimeException("Unit name đã tôn tại");
         }
         unitMapper.updateEntityFromDTO(unitRequest, existing);

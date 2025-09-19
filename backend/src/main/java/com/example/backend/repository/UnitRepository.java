@@ -7,5 +7,5 @@ import com.example.backend.entity.Unit;
 
 @Repository
 public interface UnitRepository extends JpaRepository<Unit, Long> {
-    boolean existsUnitName(String unitName);
+    boolean existsByUnitName(String unitName);
 }
