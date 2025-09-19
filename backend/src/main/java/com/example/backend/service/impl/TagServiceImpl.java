@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.backend.Mapper.TagMapper;
+import com.example.backend.mapper.TagMapper;
 import com.example.backend.dto.request.TagRequest;
 import com.example.backend.dto.response.TagResponse;
 import com.example.backend.entity.Tag;
