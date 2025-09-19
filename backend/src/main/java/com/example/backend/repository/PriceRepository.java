@@ -7,5 +7,5 @@ import com.example.backend.entity.Price;
 
 @Repository
 public interface PriceRepository extends JpaRepository<Price, Long> {
-    boolean existsPriceName(String priceName);
+    boolean existsByPriceName(String priceName);
 }

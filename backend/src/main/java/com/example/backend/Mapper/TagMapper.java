@@ -2,11 +2,13 @@ package com.example.backend.mapper;
 
 import java.util.List;
 
+import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
 import com.example.backend.dto.request.TagRequest;
 import com.example.backend.dto.response.TagResponse;
 import com.example.backend.entity.Tag;
+@Mapper(componentModel = "spring")
 
 public interface TagMapper {
     TagResponse toDTO(Tag tag);

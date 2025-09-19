@@ -2,12 +2,14 @@ package com.example.backend.mapper;
 
 import java.util.List;
 
+import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
 import com.example.backend.dto.request.BrandRequest;
 import com.example.backend.dto.response.BrandResponse;
 import com.example.backend.entity.Brand;
 
+@Mapper(componentModel = "spring")
 public interface BrandMapper {
     BrandResponse toDTO(Brand brands);
 

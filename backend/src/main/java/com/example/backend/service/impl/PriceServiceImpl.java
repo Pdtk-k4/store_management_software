@@ -22,7 +22,7 @@ public class PriceServiceImpl implements PriceService {
 
     @Override
     public PriceResponse createPrice(PriceRequest priceRequest) {
-        if (priceRepository.existsPriceName(priceRequest.getPriceName())) {
+        if (priceRepository.existsByPriceName(priceRequest.getPriceName())) {
             throw new RuntimeException("Price name đã tồn tại");
         }
         Price price = priceMapper.toEntity(priceRequest);
@@ -42,7 +42,7 @@ public class PriceServiceImpl implements PriceService {
         Price existing = priceRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Không tìm thấy price : " + id));
         if (!existing.getPriceName().equals(priceRequest.getPriceName())
-                && priceRepository.existsPriceName(priceRequest.getPriceName())) {
+                && priceRepository.existsByPriceName(priceRequest.getPriceName())) {
             throw new RuntimeException("Price name đã tôn tại");
         }
         priceMapper.updateEntityFromDTO(existing, priceRequest);

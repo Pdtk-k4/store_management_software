@@ -7,5 +7,5 @@ import com.example.backend.entity.Tag;
 
 @Repository
 public interface TagRepository extends JpaRepository<Tag, Long> {
-    boolean existsTagName(String tagName);
+    boolean existsByTagName(String tagName);
 }

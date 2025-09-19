@@ -22,7 +22,7 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public TagResponse createTag(TagRequest tagRequest) {
-        if (tagRepository.existsTagName(tagRequest.getTagName())) {
+        if (tagRepository.existsByTagName(tagRequest.getTagName())) {
             throw new RuntimeException("Tag name đã tôn tại");
         }
         Tag tag = tagMapper.toEntity(tagRequest);
