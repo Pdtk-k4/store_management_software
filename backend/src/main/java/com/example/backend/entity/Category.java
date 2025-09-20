@@ -3,7 +3,8 @@ package com.example.backend.entity;
 import lombok.AllArgsConstructor;
 
 import java.time.LocalDateTime;
-
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.NoArgsConstructor;
@@ -23,4 +24,7 @@ public class Category {
     private LocalDateTime updatedAt;
     private String creator;
     private String updater;
+    @OneToMany(mappedBy = "category", orphanRemoval = true, cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private List<Product> products = new ArrayList<>();
 }
