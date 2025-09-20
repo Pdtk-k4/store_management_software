@@ -36,7 +36,11 @@ public class SecurityConfig {
                         // Chỉ role ADMIN mới được vào /api/admin/**
                         .requestMatchers("/api/auth/register/staff").hasRole("ADMIN")
                         // .requestMatchers("/api/user/**").hasRole("USER")
-
+                        .requestMatchers("/api/brands/**").permitAll()
+                        .requestMatchers("/api/categories/**").permitAll()
+                        .requestMatchers("/api/units/**").permitAll()
+                        .requestMatchers("/api/tags/**").permitAll()
+                        .requestMatchers("/api/prices/**").hasRole("ADMIN")
                         // Chỉ user có quyền USER_CREATE mới được gọi /api/users/create
                         // .requestMatchers("api/admin/users/create").hasAnyAuthority("USER_CREATE")
                         .anyRequest().authenticated())
@@ -56,7 +60,6 @@ public class SecurityConfig {
         cfg.setAllowedHeaders(List.of("*"));
         cfg.setAllowCredentials(true);
         cfg.setMaxAge(3600L);
-
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", cfg);
         return source;
