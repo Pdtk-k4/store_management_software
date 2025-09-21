@@ -25,9 +25,9 @@ public class Price {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long priceId;
     @Column(nullable = false, unique = true, length = 50)
-    private String priceName;
+    private String priceName;// giá bán lẻ, giá sỉ
     @Column(length = 200)
-    private Double priceValue;
+    private Double priceValue;// giá trị
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     @ManyToOne
