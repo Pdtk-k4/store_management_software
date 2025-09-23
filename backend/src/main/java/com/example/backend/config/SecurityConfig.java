@@ -20,49 +20,52 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Autowired
-    private JwtAuthenticationFilter jwtAuthenticationFilter;
+        @Autowired
+        private JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable())
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-                .sessionManagement(
-                        session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(auth -> auth
-                        // Public endpoints (login, register)
-                        .requestMatchers("/api/auth/**").permitAll()
+        @Bean
+        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+                http.csrf(csrf -> csrf.disable())
+                                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                                .sessionManagement(session -> session.sessionCreationPolicy(
+                                                SessionCreationPolicy.STATELESS))
+                                .authorizeHttpRequests(auth -> auth
+                                                // Public endpoints (login, register)
+                                                .requestMatchers("/api/auth/**").permitAll()
 
-                        // Chỉ role ADMIN mới được vào /api/admin/**
-                        .requestMatchers("/api/auth/register/staff").hasRole("ADMIN")
-                        .requestMatchers("/actuator/**").permitAll() // cho phép truy cập actuator
-                        // .requestMatchers("/api/user/**").hasRole("USER")
-                        .requestMatchers("/api/brands/**").permitAll()
-                        .requestMatchers("/api/categories/**").permitAll()
-                        .requestMatchers("/api/units/**").permitAll()
-                        .requestMatchers("/api/tags/**").permitAll()
-                        .requestMatchers("/api/prices/**").hasRole("ADMIN")
-                        // Chỉ user có quyền USER_CREATE mới được gọi /api/users/create
-                        // .requestMatchers("api/admin/users/create").hasAnyAuthority("USER_CREATE")
-                        .anyRequest().authenticated())
-                .addFilterBefore(jwtAuthenticationFilter,
-                        UsernamePasswordAuthenticationFilter.class);
+                                                // Chỉ role ADMIN mới được vào /api/admin/**
+                                                .requestMatchers("/api/auth/register/staff")
+                                                .hasRole("ADMIN").requestMatchers("/actuator/**")
+                                                .permitAll() // cho phép truy cập actuator
+                                                // .requestMatchers("/api/user/**").hasRole("USER")
+                                                .requestMatchers("/api/brands/**").permitAll()
+                                                .requestMatchers("/api/categories/**").permitAll()
+                                                .requestMatchers("/api/units/**").permitAll()
+                                                .requestMatchers("/api/products/**").permitAll()
+                                                .requestMatchers("/api/tags/**").permitAll()
+                                                .requestMatchers("/api/prices/**").hasRole("ADMIN")
+                                                // Chỉ user có quyền USER_CREATE mới được gọi
+                                                // /api/users/create
+                                                // .requestMatchers("api/admin/users/create").hasAnyAuthority("USER_CREATE")
+                                                .anyRequest().authenticated())
+                                .addFilterBefore(jwtAuthenticationFilter,
+                                                UsernamePasswordAuthenticationFilter.class);
 
-        return http.build();
-    }
+                return http.build();
+        }
 
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration cfg = new CorsConfiguration();
-        cfg.setAllowedOrigins(
-                List.of("http://localhost:3000", "http://localhost:5173", "http://127.0.0.1:5173"));
-        cfg.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
-        cfg.setAllowedHeaders(List.of("*"));
-        cfg.setAllowCredentials(true);
-        cfg.setMaxAge(3600L);
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", cfg);
-        return source;
-    }
+        @Bean
+        public CorsConfigurationSource corsConfigurationSource() {
+                CorsConfiguration cfg = new CorsConfiguration();
+                cfg.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:5173",
+                                "http://127.0.0.1:5173"));
+                cfg.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+                cfg.setAllowedHeaders(List.of("*"));
+                cfg.setAllowCredentials(true);
+                cfg.setMaxAge(3600L);
+                UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+                source.registerCorsConfiguration("/**", cfg);
+                return source;
+        }
 
 }
