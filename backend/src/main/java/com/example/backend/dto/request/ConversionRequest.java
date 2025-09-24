@@ -10,7 +10,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class ConversionRequest {
+    private Long conversionId;
     private String baseUnit;
     private String convertedUnit;
     private Double conversionFactor;
+    private Long productId;
+    private String productName;
 }

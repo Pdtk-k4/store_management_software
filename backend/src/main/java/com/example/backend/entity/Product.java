@@ -14,6 +14,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import lombok.*;
 
 @Entity
@@ -43,20 +45,31 @@ public class Product {
         @ManyToOne
         @JoinColumn(name = "brand_id")
         private Brand brand;
-        @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true,
-                        fetch = FetchType.LAZY)
-        private List<Tag> tags = new ArrayList<>();
         @ManyToOne
         @JoinColumn(name = "unit_id")
         private Unit unit;
         @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true,
                         fetch = FetchType.LAZY)
-        private List<Product_unit_conversion> unitConversions = new ArrayList<>();
+        private List<Tag> tags = new ArrayList<>();
         @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true,
                         fetch = FetchType.LAZY)
-        private List<Inventory> inventories = new ArrayList<>();
+        private List<Product_unit_conversion> unitConversions = new ArrayList<>();
+
         @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true,
                         fetch = FetchType.LAZY)
         private List<Product_attribute> attributes = new ArrayList<>();
+        @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true,
+                        fetch = FetchType.LAZY)
+        private List<ProductVariants> variants = new ArrayList<>();
 
+        @PrePersist
+        protected void onCreate() {
+                createAt = LocalDateTime.now();
+                updateAt = LocalDateTime.now();
+        }
+
+        @PreUpdate
+        protected void onUpdate() {
+                updateAt = LocalDateTime.now();
+        }
 }
