@@ -33,6 +33,11 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
       label: <Link to="/products">Sản phẩm</Link>,
     },
     {
+      key: '/createProduct',
+      icon: <ShoppingOutlined />,
+      label: <Link to="/products/create">Thêm sản phẩm</Link>,
+    },
+    {
       key: '/orders',
       icon: <ShoppingCartOutlined />,
       label: <Link to="/orders">Đơn hàng</Link>,
@@ -76,7 +81,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
           </div>
         </Header>
         <Content
-          className="m-4"
+          className="m-px"
           style={{
             padding: 24,
             background: colorBgContainer,

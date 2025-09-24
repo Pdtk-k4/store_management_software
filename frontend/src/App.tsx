@@ -5,6 +5,7 @@ import AppLayout from './components/layout/AppLayout';
 import Dashboard from './pages/dashboard/Dashboard';
 import Products from './pages/products/Products';
 import Orders from './pages/orders/Orders';
+import CreateProduct from './pages/products/CreateProduct';
 import './App.css';
 
 // Ant Design theme configuration
@@ -23,6 +24,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/create" element={<CreateProduct />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/customers" element={<div>Customers Page - Coming Soon</div>} />
           </Routes>
