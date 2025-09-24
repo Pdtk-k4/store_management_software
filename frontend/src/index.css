@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ant Design customization */
+.ant-layout {
+  min-height: 100vh;
+}
+
+/* Custom styles */
+@layer components {
+  .btn-primary {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+  }
+  
+  .card {
+    @apply bg-white shadow-md rounded-lg p-6;
+  }
+}
