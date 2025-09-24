@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Sản Phẩm Mới</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#64748B'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="max-w-6xl mx-auto p-4 md:p-6">
+        <!-- Header -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-6 p-4 md:p-6">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Thêm Sản Phẩm Mới</h1>
+            <p class="text-gray-600">Điền thông tin chi tiết để thêm sản phẩm vào hệ thống</p>
+        </div>
+
+        <form class="space-y-6">
+            <!-- Thông Tin Cơ Bản -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Thông Tin Cơ Bản
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tên Sản Phẩm *</label>
+                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nhập tên sản phẩm">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Loại Sản Phẩm</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option>Sản phẩm thường</option>
+                            <option>Sản phẩm combo</option>
+                            <option>Sản phẩm dịch vụ</option>
+                            <option>Sản phẩm số</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Mã SKU *</label>
+                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="SKU001">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Barcode</label>
+                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="123456789">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Khối Lượng</label>
+                        <div class="flex">
+                            <input type="number" class="flex-1 px-3 py-2 border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="500">
+                            <select class="px-3 py-2 border-l-0 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option>g</option>
+                                <option>kg</option>
+                                <option>ml</option>
+                                <option>l</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Đơn Vị Tính</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option>Cái</option>
+                            <option>Lon</option>
+                            <option>Chai</option>
+                            <option>Hộp</option>
+                            <option>Túi</option>
+                            <option>Gói</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Thương Hiệu</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option>Chọn thương hiệu</option>
+                            <option>Coca Cola</option>
+                            <option>Pepsi</option>
+                            <option>Unilever</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tags</label>
+                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nhập tags, cách nhau bởi dấu phẩy">
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <button type="button" onclick="toggleDescription()" class="text-primary hover:text-blue-700 font-medium flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        Thêm mô tả sản phẩm
+                    </button>
+                    <div id="descriptionBox" class="hidden mt-3">
+                        <textarea class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="4" placeholder="Nhập mô tả chi tiết sản phẩm..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chính Sách Giá -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"/>
+                    </svg>
+                    Chính Sách Giá
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Giá Bán Lẻ *</label>
+                        <input type="number" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="50000">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Giá Bán Sỉ *</label>
+                        <input type="number" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="45000">
+                    </div>
+                </div>
+                
+                <button type="button" onclick="togglePricePolicy()" class="text-primary hover:text-blue-700 font-medium mb-4 flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"/>
+                    </svg>
+                    Hiển thị tất cả chính sách giá
+                </button>
+                
+                <div id="pricePolicySection" class="hidden space-y-4">
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Tên Chính Sách</label>
+                                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Giá VIP">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Giá Áp Dụng</label>
+                                <input type="number" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="40000">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Điều Kiện</label>
+                                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Mua từ 10 sản phẩm">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" onclick="addPricePolicy()" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"/>
+                        </svg>
+                        Thêm Chính Sách Giá
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hình Ảnh Sản Phẩm -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
+                    </svg>
+                    Hình Ảnh Sản Phẩm
+                </h2>
+                
+                <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-primary transition-colors">
+                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="mt-4">
+                        <label class="cursor-pointer">
+                            <span class="mt-2 block text-sm font-medium text-gray-900">Tải lên hình ảnh sản phẩm</span>
+                            <input type="file" class="sr-only" multiple accept="image/*">
+                        </label>
+                        <p class="mt-1 text-sm text-gray-500">PNG, JPG, GIF tối đa 10MB mỗi file</p>
+                    </div>
+                </div>
+                
+                <div class="mt-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4" id="imagePreview">
+                    <!-- Preview images will be added here -->
+                </div>
+            </div>
+
+            <!-- Quản Lý Kho -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"/>
+                        <path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/>
+                    </svg>
+                    Quản Lý Kho Hàng
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tồn Kho Ban Đầu</label>
+                        <input type="number" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="100">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Giá Vốn</label>
+                        <input type="number" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="30000">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Kho Lưu Trữ</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option>Kho chính</option>
+                            <option>Kho phụ</option>
+                            <option>Kho online</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thuộc Tính Sản Phẩm -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-gray-900 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"/>
+                        </svg>
+                        Thuộc Tính Sản Phẩm
+                    </h2>
+                    <label class="flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only" onchange="toggleAttributes()">
+                        <div class="relative">
+                            <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                            <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+                        </div>
+                        <span class="ml-3 text-gray-700 font-medium">Bật thuộc tính</span>
+                    </label>
+                </div>
+                
+                <div id="attributesSection" class="hidden space-y-4">
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Tên Thuộc Tính</label>
+                                <input type="text" value="Size" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Giá Trị (mỗi dòng một giá trị)</label>
+                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="3" placeholder="S&#10;M&#10;L"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" onclick="addAttribute()" class="text-primary hover:text-blue-700 font-medium flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"/>
+                        </svg>
+                        Thêm thuộc tính
+                    </button>
+                </div>
+            </div>
+
+            <!-- Đơn Vị Quy Đổi -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-gray-900 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-3 3a1 1 0 100 2h.01a1 1 0 100-2H10zm-4 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm1-4a1 1 0 100 2h.01a1 1 0 100-2H7zm2 0a1 1 0 100 2h.01a1 1 0 100-2H9zm2 0a1 1 0 100 2h.01a1 1 0 100-2H11z"/>
+                        </svg>
+                        Đơn Vị Quy Đổi
+                    </h2>
+                    <label class="flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only" onchange="toggleConversion()">
+                        <div class="relative">
+                            <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                            <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+                        </div>
+                        <span class="ml-3 text-gray-700 font-medium">Bật quy đổi</span>
+                    </label>
+                </div>
+                
+                <div id="conversionSection" class="hidden space-y-4">
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Đơn Vị Gốc</label>
+                                <input type="text" value="Thùng" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Đơn Vị Quy Đổi</label>
+                                <input type="text" value="Chai" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Tỷ Lệ Quy Đổi</label>
+                                <input type="number" value="24" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" onclick="addConversion()" class="text-primary hover:text-blue-700 font-medium flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"/>
+                        </svg>
+                        Thêm quy đổi
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cài Đặt Khác -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"/>
+                    </svg>
+                    Cài Đặt Khác
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                        <div>
+                            <h3 class="font-medium text-gray-900">Trạng Thái</h3>
+                            <p class="text-sm text-gray-500">Kích hoạt sản phẩm</p>
+                        </div>
+                        <label class="flex items-center cursor-pointer">
+                            <input type="checkbox" class="sr-only" checked>
+                            <div class="relative">
+                                <div class="block bg-primary w-14 h-8 rounded-full"></div>
+                                <div class="dot absolute right-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Thuế (%)</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option value="0">0% - Không thuế</option>
+                            <option value="5">5% - Thuế giảm</option>
+                            <option value="10">10% - Thuế tiêu chuẩn</option>
+                            <option value="15">15% - Thuế cao</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                <button type="button" class="flex-1 bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300 transition-colors font-medium">
+                    Hủy
+                </button>
+                <button type="button" class="flex-1 bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors font-medium">
+                    Lưu Nháp
+                </button>
+                <button type="submit" class="flex-1 bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                    Thêm Sản Phẩm
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function toggleDescription() {
+            const box = document.getElementById('descriptionBox');
+            box.classList.toggle('hidden');
+        }
+        
+        function togglePricePolicy() {
+            const section = document.getElementById('pricePolicySection');
+            section.classList.toggle('hidden');
+        }
+        
+        function addPricePolicy() {
+            // Add new price policy row logic here
+            console.log('Adding new price policy');
+        }
+        
+        function toggleAttributes() {
+            const section = document.getElementById('attributesSection');
+            const toggle = event.target;
+            const dot = toggle.parentElement.querySelector('.dot');
+            const bg = toggle.parentElement.querySelector('div');
+            
+            section.classList.toggle('hidden');
+            
+            if (section.classList.contains('hidden')) {
+                dot.classList.remove('translate-x-6');
+                bg.classList.remove('bg-primary');
+                bg.classList.add('bg-gray-600');
+            } else {
+                dot.classList.add('translate-x-6');
+                bg.classList.remove('bg-gray-600');
+                bg.classList.add('bg-primary');
+            }
+        }
+        
+        function addAttribute() {
+            // Add new attribute logic here
+            console.log('Adding new attribute');
+        }
+        
+        function toggleConversion() {
+            const section = document.getElementById('conversionSection');
+            const toggle = event.target;
+            const dot = toggle.parentElement.querySelector('.dot');
+            const bg = toggle.parentElement.querySelector('div');
+            
+            section.classList.toggle('hidden');
+            
+            if (section.classList.contains('hidden')) {
+                dot.classList.remove('translate-x-6');
+                bg.classList.remove('bg-primary');
+                bg.classList.add('bg-gray-600');
+            } else {
+                dot.classList.add('translate-x-6');
+                bg.classList.remove('bg-gray-600');
+                bg.classList.add('bg-primary');
+            }
+        }
+        
+        function addConversion() {
+            // Add new conversion logic here
+            console.log('Adding new conversion');
+        }
+    </script>
+</body>
+</html>
