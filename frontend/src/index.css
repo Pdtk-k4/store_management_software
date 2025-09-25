@@ -6,20 +6,25 @@
 .ant-layout {
   min-height: 100vh;
 }
-body{
-  margin: 0;
-  padding: 0;
-  
-}
-p, h1, h2, h3, h4, h5{
+
+html, body, #root {
+  height: 100%;
   margin: 0;
   padding: 0;
 }
-body::-webkit-scrollbar{
-    display: none;
+/* Reset heading, paragraph */
+p, h1, h2, h3, h4, h5 {
+  margin: 0;
+  padding: 0;
 }
 
-.custom-scrollbar::-webkit-scrollbar{
+/* Ẩn scrollbar toàn bộ body */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Class riêng để ẩn scrollbar (chỉ áp dụng khi thêm class) */
+.custom-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
