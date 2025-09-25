@@ -50,9 +50,8 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
 
         {/* Content */}
         <Content
-          className="m-px"
+          className="p-4 lg:p-6"
           style={{
-            padding: 24,
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}
