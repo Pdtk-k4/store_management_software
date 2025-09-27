@@ -27,9 +27,24 @@ const menuItems: MenuItem[] = [
     label: "Quản lý Đơn Hàng",
     icon: "fas fa-shopping-cart",
     children: [
-      { key: "online-orders", label: "Đơn Hàng Online", icon: "fas fa-globe", path: "#" },
-      { key: "store-orders", label: "Đơn Hàng Tại Quầy", icon: "fas fa-store", path: "#" },
-      { key: "edit-orders", label: "Sửa/Lý Đơn Hàng", icon: "fas fa-edit", path: "#" },
+      {
+        key: "online-orders",
+        label: "Đơn Hàng Online",
+        icon: "fas fa-globe",
+        path: "#",
+      },
+      {
+        key: "store-orders",
+        label: "Đơn Hàng Tại Quầy",
+        icon: "fas fa-store",
+        path: "#",
+      },
+      {
+        key: "edit-orders",
+        label: "Sửa/Lý Đơn Hàng",
+        icon: "fas fa-edit",
+        path: "#",
+      },
     ],
   },
   {
@@ -37,10 +52,30 @@ const menuItems: MenuItem[] = [
     label: "Quản lý Sản Phẩm",
     icon: "fa-solid fa-box-open",
     children: [
-      { key: "list-products", label: "DS Sản Phẩm", icon: "fas fa-list", path: "#" },
-      { key: "add-products", label: "Thêm Sản Phẩm", icon: "fas fa-plus", path: "#" },
-      { key: "categories", label: "Danh Mục", icon: "fas fa-tags", path: "#" },
-      { key: "warehouse", label: "Kho Hàng", icon: "fas fa-warehouse", path: "#" },
+      {
+        key: "list-products",
+        label: "DS Sản Phẩm",
+        icon: "fas fa-list",
+        path: "/products/listproduct",
+      },
+      {
+        key: "add-products",
+        label: "Thêm Sản Phẩm",
+        icon: "fas fa-plus",
+        path: "/products/create",
+      },
+      {
+        key: "categories",
+        label: "Danh Mục",
+        icon: "fas fa-tags",
+        path: "/categories/create",
+      },
+      {
+        key: "warehouse",
+        label: "Kho Hàng",
+        icon: "fas fa-warehouse",
+        path: "#",
+      },
     ],
   },
   {
@@ -48,10 +83,30 @@ const menuItems: MenuItem[] = [
     label: "Quản lý Nhân Viên",
     icon: "fas fa-users",
     children: [
-      { key: "list-users", label: "DS Nhân Viên", icon: "fas fa-user-friends", path: "#" },
-      { key: "add-users", label: "Thêm Nhân Viên", icon: "fas fa-user-plus", path: "#" },
-      { key: "attendance", label: "Chấm Công", icon: "fas fa-clock", path: "#" },
-      { key: "salary", label: "Lương Thưởng", icon: "fas fa-dollar-sign", path: "#" },
+      {
+        key: "list-users",
+        label: "DS Nhân Viên",
+        icon: "fas fa-user-friends",
+        path: "#",
+      },
+      {
+        key: "add-users",
+        label: "Thêm Nhân Viên",
+        icon: "fas fa-user-plus",
+        path: "#",
+      },
+      {
+        key: "attendance",
+        label: "Chấm Công",
+        icon: "fas fa-clock",
+        path: "#",
+      },
+      {
+        key: "salary",
+        label: "Lương Thưởng",
+        icon: "fas fa-dollar-sign",
+        path: "#",
+      },
     ],
   },
   {
@@ -59,9 +114,24 @@ const menuItems: MenuItem[] = [
     label: "Quản lý Công Việc",
     icon: "fas fa-tasks",
     children: [
-      { key: "projects", label: "Dự Án", icon: "fas fa-project-diagram", path: "#" },
-      { key: "schedule", label: "Lịch Làm Việc", icon: "fas fa-calendar-alt", path: "#" },
-      { key: "missions", label: "Nhiệm Vụ", icon: "fas fa-check-circle", path: "#" },
+      {
+        key: "projects",
+        label: "Dự Án",
+        icon: "fas fa-project-diagram",
+        path: "#",
+      },
+      {
+        key: "schedule",
+        label: "Lịch Làm Việc",
+        icon: "fas fa-calendar-alt",
+        path: "#",
+      },
+      {
+        key: "missions",
+        label: "Nhiệm Vụ",
+        icon: "fas fa-check-circle",
+        path: "#",
+      },
     ],
   },
   {
@@ -69,9 +139,24 @@ const menuItems: MenuItem[] = [
     label: "Báo Cáo",
     icon: "fas fa-chart-bar",
     children: [
-      { key: "revenue-report", label: "Doanh Thu", icon: "fas fa-chart-line", path: "#" },
-      { key: "top-products-report", label: "Sản Phẩm Bán Chạy", icon: "fas fa-chart-pie", path: "#" },
-      { key: "staff-performance-report", label: "Hiệu Suất NV", icon: "fas fa-users-cog", path: "#" },
+      {
+        key: "revenue-report",
+        label: "Doanh Thu",
+        icon: "fas fa-chart-line",
+        path: "#",
+      },
+      {
+        key: "top-products-report",
+        label: "Sản Phẩm Bán Chạy",
+        icon: "fas fa-chart-pie",
+        path: "#",
+      },
+      {
+        key: "staff-performance-report",
+        label: "Hiệu Suất NV",
+        icon: "fas fa-users-cog",
+        path: "#",
+      },
     ],
   },
   {
@@ -79,16 +164,38 @@ const menuItems: MenuItem[] = [
     label: "Cài Đặt",
     icon: "fas fa-cog",
     children: [
-      { key: "store-settings", label: "Cửa Hàng", icon: "fa-solid fa-shop", path: "#" },
-      { key: "payment-settings", label: "Thanh Toán", icon: "fas fa-credit-card", path: "#" },
-      { key: "security-settings", label: "Bảo Mật", icon: "fas fa-shield-alt", path: "#" },
-      { key: "notification-settings", label: "Thông Báo", icon: "fas fa-bell w-4", path: "#" },
+      {
+        key: "store-settings",
+        label: "Cửa Hàng",
+        icon: "fa-solid fa-shop",
+        path: "#",
+      },
+      {
+        key: "payment-settings",
+        label: "Thanh Toán",
+        icon: "fas fa-credit-card",
+        path: "#",
+      },
+      {
+        key: "security-settings",
+        label: "Bảo Mật",
+        icon: "fas fa-shield-alt",
+        path: "#",
+      },
+      {
+        key: "notification-settings",
+        label: "Thông Báo",
+        icon: "fas fa-bell w-4",
+        path: "#",
+      },
     ],
   },
-
 ];
 
-const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, setIsSidebarOpen }) => {
+const Sidebar: React.FC<SidebarProps> = ({
+  isSidebarOpen,
+  setIsSidebarOpen,
+}) => {
   // State quản lý submenu đang mở
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({});
 
@@ -104,8 +211,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, setIsSidebarOpen }) =>
       {/* Mobile Overlay */}
       <div
         id="mobile-overlay"
-        className={`fixed inset-0 bg-black z-40 lg:hidden transition-opacity duration-300 ${isSidebarOpen ? "opacity-50 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`}
+        className={`fixed inset-0 bg-black z-40 lg:hidden transition-opacity duration-300 ${
+          isSidebarOpen
+            ? "opacity-50 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
         onClick={() => setIsSidebarOpen(false)}
       ></div>
 
@@ -123,7 +233,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, setIsSidebarOpen }) =>
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <i className="fas fa-chart-line text-white text-sm"></i>
               </div>
-              <span className="text-xl font-bold text-gray-800">Store Management</span>
+              <span className="text-xl font-bold text-gray-800">
+                Store Management
+              </span>
             </div>
             <button
               onClick={() => setIsSidebarOpen(false)}
@@ -149,15 +261,19 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, setIsSidebarOpen }) =>
                       <span className="font-medium">{item.label}</span>
                     </div>
                     <i
-                      className={`fas fa-chevron-down transform transition-transform duration-300 ${openMenus[item.key] ? "rotate-180" : ""
-                        }`}
+                      className={`fas fa-chevron-down transform transition-transform duration-300 ${
+                        openMenus[item.key] ? "rotate-180" : ""
+                      }`}
                     ></i>
                   </button>
 
                   {/* Submenu */}
                   <div
-                    className={`ml-8 space-y-1 overflow-hidden transition-all duration-300 ${openMenus[item.key] ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                      }`}
+                    className={`ml-8 space-y-1 overflow-hidden transition-all duration-300 ${
+                      openMenus[item.key]
+                        ? "max-h-96 opacity-100"
+                        : "max-h-0 opacity-0"
+                    }`}
                   >
                     {item.children.map((child) => (
                       <Link
