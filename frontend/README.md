@@ -1,5 +1,7 @@
 # Store Management Frontend
 
+import "reui/dist/reui.css";
+
 Ứng dụng quản lý cửa hàng được xây dựng với React, TypeScript, Vite, Tailwind CSS và Ant Design.
 
 ## Công nghệ sử dụng
