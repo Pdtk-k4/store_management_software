@@ -1,5 +1,5 @@
 import React from "react";
-
+import TypeProductUi from "../components/ui/TypeProductUi";
 const ListProduct: React.FC = () => {
   return (
     <div>
@@ -7,10 +7,10 @@ const ListProduct: React.FC = () => {
         <h3>Tất cả sản phẩm</h3>
         <hr />
         <div className="">
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-4 p-4">
+          <div className="grid grid-cols-1 md:grid-cols-10 gap-4 p-4">
             {/* Cột 1 */}
-            <div className="md:col-span-1">
-              <div className="relative hidden sm:block">
+            <div className=" md:col-span-4">
+              <div className="relative sm:block">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <i className="fas fa-search text-gray-400"></i>
                 </div>
@@ -23,12 +23,15 @@ const ListProduct: React.FC = () => {
             </div>
 
             {/* Cột 4 */}
-            <div className="md:col-span-4 bg-green-200">
-              <p>Giữa</p>
+            <div className="md:col-span-4">
+              <TypeProductUi />
+              <TypeProductUi />
+              <TypeProductUi />
+              <TypeProductUi />
             </div>
 
             {/* Cột 1 */}
-            <div className="md:col-span-1 bg-blue-200">
+            <div className="md:col-span-2 bg-blue-200">
               <p>Phải</p>
             </div>
           </div>
