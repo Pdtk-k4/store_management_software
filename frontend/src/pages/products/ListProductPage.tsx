@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { IoIosAdd } from "react-icons/io";
 import { FaCaretDown } from "react-icons/fa";
 import ListProduct from "../products/components/ListProduct";
+import ProductTable from "../products/components/ProductTable";
 const ListProductPage: React.FC = () => {
   return (
     <div className="bg-[rgba(240,241,241,1)] space-y-2">
@@ -100,6 +101,7 @@ const ListProductPage: React.FC = () => {
       </div>
       <div className="bg-white marker:rounded-ms mt-4">
         <ListProduct />
+        <ProductTable />
       </div>
     </div>
   );

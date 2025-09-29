@@ -11,6 +11,7 @@ import ListProduct from "./pages/products/ListProductPage";
 import "./App.css";
 
 // Ant Design theme configuration
+
 const theme = {
   token: {
     colorPrimary: "#1890ff",
