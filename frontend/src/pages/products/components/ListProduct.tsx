@@ -1,6 +1,26 @@
 import React from "react";
+import { useState } from "react";
 import TypeProductUi from "../components/ui/TypeProductUi";
+import DropdownMultiSelect from "../components/ui/TypeProductUi";
+import DateFilterFormUi from "../components/ui/DateFilterFormUi";
+import { LuFilter } from "react-icons/lu";
+import { DatePicker, Button, Dropdown } from "antd";
+import ProductFilter from "../components/ui/ProductFilter";
+const productTypes = [
+  { label: "Thức ăn chó", value: "food" },
+  { label: "Balo", value: "balo" },
+  { label: "Đồ chơi cho chó", value: "toy" },
+  { label: "Dây dắt, vòng cổ, chuồng", value: "leash" },
+];
+const productBrands = [
+  { label: "MrViet", value: "food" },
+  { label: "RoiAlCnin", value: "balo" },
+  { label: "DogToy", value: "toy" },
+  { label: "CatsRang", value: "leash" },
+];
+
 const ListProduct: React.FC = () => {
+  const [showFilter, setShowFilter] = useState(false);
   return (
     <div>
       <div className="">
@@ -23,16 +43,34 @@ const ListProduct: React.FC = () => {
             </div>
 
             {/* Cột 4 */}
-            <div className="md:col-span-4">
-              <TypeProductUi />
-              <TypeProductUi />
-              <TypeProductUi />
-              <TypeProductUi />
+            <div className="md:col-span-4 flex ">
+              <DropdownMultiSelect
+                items={productTypes}
+                title="Loại sản phẩm"
+                onChange={(values) => console.log("Loại SP:", values)}
+              />
+
+              <DropdownMultiSelect
+                items={productBrands}
+                title="Thương hiệu sản phẩm"
+                onChange={(values) => console.log("Loại SP:", values)}
+              />
+              <DateFilterFormUi />
+              <Button className="">Bộ lọc khác</Button>
             </div>
 
             {/* Cột 1 */}
-            <div className="md:col-span-2 bg-blue-200">
-              <p>Phải</p>
+            <div className="md:col-span-2 ">
+              <Button onClick={() => setShowFilter(true)} className="">
+                <LuFilter />
+                Lưu bộ lọc
+              </Button>
+              {showFilter && (
+                <ProductFilter
+                  open={showFilter}
+                  onClose={() => setShowFilter(false)}
+                />
+              )}
             </div>
           </div>
         </div>
