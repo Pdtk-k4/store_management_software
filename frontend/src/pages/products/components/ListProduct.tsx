@@ -47,23 +47,23 @@ const ListProduct: React.FC = () => {
               <DropdownMultiSelect
                 items={productTypes}
                 title="Loại sản phẩm"
+                className="bg-transparent bg-none border-none"
                 onChange={(values) => console.log("Loại SP:", values)}
               />
 
               <DropdownMultiSelect
                 items={productBrands}
-                title="Thương hiệu sản phẩm"
+                className="bg-transparent bg-none border-none"
+                title="Thương hiệu"
                 onChange={(values) => console.log("Loại SP:", values)}
               />
-              <DateFilterFormUi />
-              <Button className="">Bộ lọc khác</Button>
-            </div>
-
-            {/* Cột 1 */}
-            <div className="md:col-span-2 ">
-              <Button onClick={() => setShowFilter(true)} className="">
+              <DateFilterFormUi className="bg-transparent bg-none border-none" />
+              <Button
+                onClick={() => setShowFilter(true)}
+                className="bg-transparent bg-none border-none"
+              >
                 <LuFilter />
-                Lưu bộ lọc
+                Bộ lọc khác
               </Button>
               {showFilter && (
                 <ProductFilter
@@ -71,6 +71,11 @@ const ListProduct: React.FC = () => {
                   onClose={() => setShowFilter(false)}
                 />
               )}
+            </div>
+
+            {/* Cột 1 */}
+            <div className="md:col-span-2 flex justify-end">
+              <Button className="">Lưu bộ lọc</Button>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Layout, theme } from 'antd';
-import Sidebar from '../ui/Sidebar';
-import Header from '../ui/Header';
+import React, { useEffect, useRef, useState } from "react";
+import { Layout, theme } from "antd";
+import Sidebar from "../ui/Sidebar";
+import Header from "../ui/Header";
 
 const { Content } = Layout;
 
@@ -16,11 +16,14 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
 
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const profileRef = useRef<HTMLDivElement>(null);// ref cho dropdown + button
+  const profileRef = useRef<HTMLDivElement>(null); // ref cho dropdown + button
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (profileRef.current && !profileRef.current.contains(event.target as Node)) {
+      if (
+        profileRef.current &&
+        !profileRef.current.contains(event.target as Node)
+      ) {
         setIsProfileOpen(false);
       }
     };
@@ -31,15 +34,15 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   }, []);
 
   return (
-    <div className="bg-gray-50 font-sans">
+    <div className=" font-sans ">
       {/* Sidebar */}
       <Sidebar
         isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen} />
+        setIsSidebarOpen={setIsSidebarOpen}
+      />
 
       {/* Main Content */}
       <div className="lg:ml-64 min-h-screen">
-
         {/* Header */}
         <Header
           setIsSidebarOpen={setIsSidebarOpen}
@@ -50,9 +53,8 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
 
         {/* Content */}
         <Content
-          className="p-4 lg:p-6"
+          className="p-4 lg:p-6 bg-[rgba(240,241,241,1)]"
           style={{
-            background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}
         >
