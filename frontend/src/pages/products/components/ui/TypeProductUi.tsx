@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { Button, Dropdown, Input, Checkbox } from "antd";
 
 export interface OptionItem {
@@ -9,16 +9,26 @@ export interface OptionItem {
 interface DropdownMultiSelectProps {
   items: OptionItem[];
   title?: string;
+  className?: string;
   onChange?: (values: string[]) => void;
 }
 
 export default function DropdownMultiSelect({
   items,
+  className,
   title = "Chọn",
   onChange,
 }: DropdownMultiSelectProps) {
   const [selected, setSelected] = useState<string[]>([]);
   const [search, setSearch] = useState("");
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const [btnWidth, setBtnWidth] = useState<number | null>(null);
+
+  useLayoutEffect(() => {
+    if (btnRef.current) {
+      setBtnWidth(btnRef.current.offsetWidth);
+    }
+  }, []);
 
   const toggleSelect = (val: string) => {
     setSelected((prev) => {
@@ -44,7 +54,10 @@ export default function DropdownMultiSelect({
   );
 
   const dropdownContent = (
-    <div className="w-64 bg-white p-2 max-h-[60vh] overflow-y-auto">
+    <div
+      className="w-64 bg-white p-2 max-h-[60vh] overflow-y-auto"
+      style={{ width: btnWidth && btnWidth > 200 ? btnWidth : 288 }} // 288px = w-72
+    >
       <Input.Search
         placeholder="Tìm kiếm"
         allowClear
@@ -86,7 +99,7 @@ export default function DropdownMultiSelect({
       getPopupContainer={(trigger) => trigger.parentElement!}
       overlayStyle={{ minWidth: "260px", maxWidth: "90vw" }}
     >
-      <Button>
+      <Button ref={btnRef} className={`${className} flex justify-start`}>
         {title} {selected.length > 0 && `(${selected.length})`}
       </Button>
     </Dropdown>

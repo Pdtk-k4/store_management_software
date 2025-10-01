@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FaAngleDoubleRight, FaAngleDoubleDown } from "react-icons/fa";
+import { Table, Button, Select, Space, Popconfirm, Tag } from "antd";
+import type { ColumnsType } from "antd/es/table";
 
 interface Variation {
   id: number;
@@ -17,6 +18,7 @@ interface Product {
   name: string;
   stock: number;
   createdAt: string;
+  status?: "active" | "inactive";
   variations?: Variation[];
 }
 
@@ -26,6 +28,7 @@ const products: Product[] = [
     name: "Cát than hoạt tính Aboss",
     stock: 27,
     createdAt: "26/09/2025",
+    status: "active",
     variations: [
       {
         id: 101,
@@ -34,8 +37,8 @@ const products: Product[] = [
         stock: 27,
         inTrade: 0,
         retailPrice: 110000,
-        wholesalePrice: 0,
-        importPrice: 0,
+        wholesalePrice: 95000,
+        importPrice: 80000,
       },
       {
         id: 102,
@@ -44,8 +47,8 @@ const products: Product[] = [
         stock: 9,
         inTrade: 9,
         retailPrice: 300000,
-        wholesalePrice: 0,
-        importPrice: 0,
+        wholesalePrice: 270000,
+        importPrice: 250000,
       },
     ],
   },
@@ -54,185 +57,181 @@ const products: Product[] = [
     name: "Hạt cho chó S2 V1 topping",
     stock: 3,
     createdAt: "26/09/2025",
+    status: "inactive",
+  },
+  {
+    id: 3,
+    name: "Xương gặm vị bò",
+    stock: 12,
+    createdAt: "25/09/2025",
+    status: "active",
   },
 ];
 
-export default function ProductTable() {
-  const [expanded, setExpanded] = useState<number[]>([]);
-  const [selected, setSelected] = useState<number[]>([]);
+const ProductTable: React.FC = () => {
+  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
 
-  const toggleExpand = (id: number) => {
-    setExpanded((prev) =>
-      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
-    );
-  };
+  // Cột sản phẩm cha
+  const productColumns: ColumnsType<Product> = [
+    {
+      title: "ảnh",
+      dataIndex: "name",
+      key: "name",
+      render: (text, record) => (
+        <div>
+          <div className="font-medium">{text}</div>
+          <div className="text-xs text-gray-500">ID: {record.id}</div>
+        </div>
+      ),
+    },
+    {
+      title: "Sản phẩm",
+      dataIndex: "name",
+      key: "name",
+      render: (text, record) => (
+        <div>
+          <div className="font-medium">{text}</div>
+          <div className="text-xs text-gray-500">ID: {record.id}</div>
+        </div>
+      ),
+    },
+    {
+      title: "Có thể bán",
+      dataIndex: "stock",
+      key: "stock",
+      align: "center",
+    },
+    {
+      title: "Ngày tạo",
+      dataIndex: "createdAt",
+      key: "createdAt",
+      align: "center",
+    },
+    {
+      title: "Trạng thái",
+      dataIndex: "status",
+      key: "status",
+      align: "center",
+      render: (status) =>
+        status === "active" ? (
+          <Tag color="green">Đang bán</Tag>
+        ) : (
+          <Tag color="red">Ngừng</Tag>
+        ),
+    },
+    {
+      title: "Thao tác",
+      key: "actions",
+      align: "center",
+      render: (_, record) => (
+        <Space>
+          <Button size="small" type="link">
+            Sửa
+          </Button>
+          <Popconfirm
+            title="Bạn có chắc muốn xóa?"
+            okText="Xóa"
+            cancelText="Hủy"
+            onConfirm={() => console.log("Xóa:", record.id)}
+          >
+            <Button size="small" type="link" danger>
+              Xóa
+            </Button>
+          </Popconfirm>
+        </Space>
+      ),
+    },
+  ];
 
-  const toggleSelect = (id: number) => {
-    setSelected((prev) =>
-      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
-    );
-  };
-
-  const toggleSelectAll = () => {
-    if (selected.length === products.length) {
-      setSelected([]);
-    } else {
-      setSelected(products.map((p) => p.id));
-    }
-  };
+  // Cột sản phẩm con (variations)
+  const variationColumns: ColumnsType<Variation> = [
+    { title: "Phiên bản", dataIndex: "name", key: "name" },
+    { title: "Mã SP", dataIndex: "code", key: "code", align: "center" },
+    { title: "Có thể bán", dataIndex: "stock", key: "stock", align: "center" },
+    {
+      title: "Đang giao dịch",
+      dataIndex: "inTrade",
+      key: "inTrade",
+      align: "center",
+    },
+    {
+      title: "Giá bán lẻ",
+      dataIndex: "retailPrice",
+      key: "retailPrice",
+      align: "right",
+      render: (val) => `${val.toLocaleString()} đ`,
+    },
+    {
+      title: "Giá bán buôn",
+      dataIndex: "wholesalePrice",
+      key: "wholesalePrice",
+      align: "right",
+      render: (val) => `${val.toLocaleString()} đ`,
+    },
+    {
+      title: "Giá nhập",
+      dataIndex: "importPrice",
+      key: "importPrice",
+      align: "right",
+      render: (val) => `${val.toLocaleString()} đ`,
+    },
+  ];
 
   return (
     <div className="border rounded-md overflow-hidden">
       {/* Bulk action bar */}
-      {selected.length > 0 && (
+      {selectedRowKeys.length > 0 && (
         <div className="p-3 bg-gray-50 border-b flex items-center justify-between">
           <span className="text-sm">
-            Đã chọn <b>{selected.length}</b> sản phẩm
+            Đã chọn <b>{selectedRowKeys.length}</b> sản phẩm
           </span>
-          <select className="border rounded px-2 py-1 text-sm">
-            <option>Chọn thao tác</option>
-            <option>Kiểm tra tồn kho</option>
-            <option>In mã vạch</option>
-            <option>Đang giao dịch</option>
-            <option>Ngừng giao dịch</option>
-          </select>
+          <Select
+            defaultValue="Chọn thao tác"
+            style={{ width: 200 }}
+            options={[
+              { value: "stock", label: "Kiểm tra tồn kho" },
+              { value: "barcode", label: "In mã vạch" },
+              { value: "inTrade", label: "Đang giao dịch" },
+              { value: "stopTrade", label: "Ngừng giao dịch" },
+              { value: "delete", label: "Xóa sản phẩm" },
+            ]}
+          />
         </div>
       )}
 
       {/* Table */}
-      <table className="w-full border border-gray-300">
-        <thead className="bg-gray-100 text-sm border-b border-gray-300">
-          <tr>
-            <th className="p-2 border-r border-gray-300">
-              <input
-                type="checkbox"
-                checked={selected.length === products.length}
-                onChange={toggleSelectAll}
+      <Table<Product>
+        rowKey="id"
+        columns={productColumns}
+        dataSource={products}
+        rowSelection={{
+          selectedRowKeys,
+          onChange: (keys) => setSelectedRowKeys(keys),
+        }}
+        expandable={{
+          expandedRowRender: (record) =>
+            record.variations ? (
+              <Table<Variation>
+                rowKey="id"
+                columns={variationColumns}
+                dataSource={record.variations}
+                pagination={false}
+                size="small"
               />
-            </th>
-            <th className="p-2 border-r border-gray-300 text-left">Sản phẩm</th>
-            <th className="p-2 border-r border-gray-300 text-center">
-              Có thể bán
-            </th>
-            <th className="p-2 text-center">Ngày tạo</th>
-          </tr>
-        </thead>
-        <tbody className="text-sm divide-y divide-gray-200">
-          {products.map((p, idx) => (
-            <React.Fragment key={p.id}>
-              {/* Hàng cha */}
-              <tr
-                className={`hover:bg-gray-50 ${
-                  idx % 2 === 0 ? "bg-white" : "bg-gray-50"
-                }`}
-              >
-                <td className="p-2 border-r border-gray-200 text-center">
-                  <input
-                    type="checkbox"
-                    checked={selected.includes(p.id)}
-                    onChange={() => toggleSelect(p.id)}
-                  />
-                </td>
-                <td
-                  className="p-2 border-r border-gray-200 cursor-pointer"
-                  onClick={() => toggleExpand(p.id)}
-                >
-                  <div className="flex items-center space-x-2">
-                    {p.variations && (
-                      <span className="text-gray-400 mt-2">
-                        {expanded.includes(p.id) ? (
-                          <FaAngleDoubleDown size={16} />
-                        ) : (
-                          <FaAngleDoubleRight size={16} />
-                        )}
-                      </span>
-                    )}
-                    <span className="font-medium">{p.name}</span>
-                  </div>
-                </td>
-                <td className="p-2 border-r border-gray-200 text-center">
-                  {p.stock}
-                </td>
-                <td className="p-2 text-center">{p.createdAt}</td>
-              </tr>
-
-              {/* Hàng con là table */}
-              {expanded.includes(p.id) && p.variations && (
-                <tr>
-                  <td colSpan={4} className="p-0 border-t">
-                    <div className="pl-40">
-                      <table className="w-full text-xs border border-gray-200 bg-blue-50">
-                        <thead className="bg-blue-100">
-                          <tr>
-                            <th className="p-2 border border-gray-300 text-left">
-                              Phiên bản
-                            </th>
-                            <th className="p-2 border border-gray-300 text-center">
-                              Mã SP
-                            </th>
-                            <th className="p-2 border border-gray-300 text-center">
-                              Có thể bán
-                            </th>
-                            <th className="p-2 border border-gray-300 text-center">
-                              Đang giao dịch
-                            </th>
-                            <th className="p-2 border border-gray-300 text-center">
-                              Giá bán lẻ
-                            </th>
-                            <th className="p-2 border border-gray-300 text-center">
-                              Giá bán buôn
-                            </th>
-                            <th className="p-2 border border-gray-300 text-center">
-                              Giá nhập
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-200">
-                          {p.variations.map((v, vIdx) => (
-                            <tr
-                              key={v.id}
-                              className={`${
-                                vIdx % 2 === 0 ? "bg-blue-50" : "bg-blue-100"
-                              }`}
-                            >
-                              <td className="p-2 border border-gray-200">
-                                <a href="#" className="text-blue-600 underline">
-                                  {v.name}
-                                </a>
-                              </td>
-                              <td className="p-2 border border-gray-200 text-center">
-                                {v.code}
-                              </td>
-                              <td className="p-2 border border-gray-200 text-center">
-                                {v.stock} <br />
-                                <span className="text-xs text-gray-500">
-                                  (có 2 phiên bản)
-                                </span>
-                              </td>
-                              <td className="p-2 border border-gray-200 text-center">
-                                {v.inTrade}
-                              </td>
-                              <td className="p-2 border border-gray-200 text-center">
-                                {v.retailPrice.toLocaleString()} đ
-                              </td>
-                              <td className="p-2 border border-gray-200 text-center">
-                                {v.wholesalePrice.toLocaleString()} đ
-                              </td>
-                              <td className="p-2 border border-gray-200 text-center">
-                                {v.importPrice.toLocaleString()} đ
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-              )}
-            </React.Fragment>
-          ))}
-        </tbody>
-      </table>
+            ) : null,
+          rowExpandable: (record) =>
+            !!record.variations && record.variations.length > 0, // ✅ chỉ hiển thị nút expand nếu có variations
+        }}
+        pagination={{
+          pageSize: 5, // ✅ số sản phẩm mỗi trang
+          showSizeChanger: true, // cho phép chọn số dòng/trang
+          pageSizeOptions: ["5", "10", "20", "50"], // tùy chọn số dòng
+          showTotal: (total, range) =>
+            `${range[0]}-${range[1]} của ${total} sản phẩm`, // hiển thị tổng
+        }}
+      />
     </div>
   );
-}
+};
+
+export default ProductTable;

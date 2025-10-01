@@ -44,7 +44,7 @@ const DropdownListProduct: React.FC<DropdownProps> = ({
       {/* Button mở */}
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center px-3 py-2 bg-transparent bg-none border-none border-gray-300 rounded-md text-sm"
+        className="flex items-center bg-transparent bg-none border-none border-gray-300 rounded-md text-sm"
       >
         {label}
         <FaCaretDown
