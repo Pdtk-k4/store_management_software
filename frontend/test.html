@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm Sản Phẩm Mới</title>
+    <title>Chi Tiết Sản Phẩm</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -19,417 +19,811 @@
     </script>
 </head>
 <body class="bg-gray-50 min-h-screen">
-    <div class="max-w-6xl mx-auto p-4 md:p-6">
-        <!-- Header -->
-        <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-6 p-4 md:p-6">
-            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Thêm Sản Phẩm Mới</h1>
-            <p class="text-gray-600">Điền thông tin chi tiết để thêm sản phẩm vào hệ thống</p>
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-600 hover:text-gray-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="text-xl font-semibold text-gray-900">Chi Tiết Sản Phẩm</h1>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                        Chỉnh Sửa
+                    </button>
+                    <button class="text-gray-600 hover:text-gray-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zM12 13a1 1 0 110-2 1 1 0 010 2zM12 20a1 1 0 110-2 1 1 0 010 2z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Product Overview -->
+        <div class="bg-white rounded-xl shadow-sm border p-6 mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Product Image -->
+                <div class="lg:col-span-1">
+                    <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop" alt="Product" class="w-full h-full object-cover">
+                    </div>
+                    <div class="grid grid-cols-4 gap-2 mt-4">
+                        <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop" alt="Thumbnail" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=100&h=100&fit=crop" alt="Thumbnail" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=100&h=100&fit=crop" alt="Thumbnail" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop" alt="Thumbnail" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">iPhone 15 Pro Max</h1>
+                            <p class="text-gray-600 mb-4">Điện thoại thông minh cao cấp với chip A17 Pro và camera tiên tiến</p>
+                        </div>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Đang bán</span>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Điện thoại</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Apple</span>
+                        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Cao cấp</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Mới nhất</span>
+                    </div>
+
+                    <!-- Product Details Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-sm font-medium text-gray-500 mb-2">Mã sản phẩm</h3>
+                            <p class="text-gray-900 font-medium">IP15PM-001</p>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-medium text-gray-500 mb-2">Danh mục</h3>
+                            <p class="text-gray-900 font-medium">Điện thoại > Smartphone</p>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-medium text-gray-500 mb-2">Thương hiệu</h3>
+                            <p class="text-gray-900 font-medium">Apple</p>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-medium text-gray-500 mb-2">Ngày tạo</h3>
+                            <p class="text-gray-900 font-medium">15/10/2024</p>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-medium text-gray-500 mb-2">Người tạo</h3>
+                            <p class="text-gray-900 font-medium">Nguyễn Văn A</p>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-medium text-gray-500 mb-2">Cập nhật cuối</h3>
+                            <p class="text-gray-900 font-medium">20/10/2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <form class="space-y-6">
-            <!-- Thông Tin Cơ Bản -->
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6">
-                <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Thông Tin Cơ Bản
-                </h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                    <div class="md:col-span-2">
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Tên Sản Phẩm *</label>
-                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nhập tên sản phẩm">
-                    </div>
-                    
+        <!-- Product Variants -->
+        <div class="bg-white rounded-xl shadow-sm border">
+            <div class="p-6 border-b border-gray-200">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Loại Sản Phẩm</label>
-                        <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                            <option>Sản phẩm thường</option>
-                            <option>Sản phẩm combo</option>
-                            <option>Sản phẩm dịch vụ</option>
-                            <option>Sản phẩm số</option>
-                        </select>
+                        <h2 class="text-xl font-semibold text-gray-900">Phiên Bản Sản Phẩm</h2>
+                        <p class="text-sm text-gray-600 mt-1">Quản lý các phiên bản và tồn kho theo chi nhánh</p>
                     </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Mã SKU *</label>
-                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="SKU001">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Barcode</label>
-                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="123456789">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Khối Lượng</label>
-                        <div class="flex">
-                            <input type="number" class="flex-1 px-3 py-2 border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="500">
-                            <select class="px-3 py-2 border-l-0 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                                <option>g</option>
-                                <option>kg</option>
-                                <option>ml</option>
-                                <option>l</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Đơn Vị Tính</label>
-                        <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                            <option>Cái</option>
-                            <option>Lon</option>
-                            <option>Chai</option>
-                            <option>Hộp</option>
-                            <option>Túi</option>
-                            <option>Gói</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Thương Hiệu</label>
-                        <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                            <option>Chọn thương hiệu</option>
-                            <option>Coca Cola</option>
-                            <option>Pepsi</option>
-                            <option>Unilever</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Tags</label>
-                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nhập tags, cách nhau bởi dấu phẩy">
-                    </div>
-                </div>
-                
-                <div class="mt-4">
-                    <button type="button" onclick="toggleDescription()" class="text-primary hover:text-blue-700 font-medium flex items-center">
-                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
-                            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"/>
-                        </svg>
-                        Thêm mô tả sản phẩm
-                    </button>
-                    <div id="descriptionBox" class="hidden mt-3">
-                        <textarea class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="4" placeholder="Nhập mô tả chi tiết sản phẩm..."></textarea>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600 transition-colors">
+                            + Thêm phiên bản
+                        </button>
+                        <button class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-700 transition-colors">
+                            Nhập kho
+                        </button>
+                        <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm hover:bg-gray-50 transition-colors">
+                            Xuất Excel
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Chính Sách Giá -->
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6">
-                <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"/>
-                    </svg>
-                    Chính Sách Giá
-                </h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Giá Bán Lẻ *</label>
-                        <input type="number" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="50000">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Giá Bán Sỉ *</label>
-                        <input type="number" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="45000">
-                    </div>
-                </div>
-                
-                <button type="button" onclick="togglePricePolicy()" class="text-primary hover:text-blue-700 font-medium mb-4 flex items-center">
-                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"/>
-                    </svg>
-                    Hiển thị tất cả chính sách giá
-                </button>
-                
-                <div id="pricePolicySection" class="hidden space-y-4">
-                    <div class="border border-gray-200 rounded-lg p-4">
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Tên Chính Sách</label>
-                                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Giá VIP">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Giá Áp Dụng</label>
-                                <input type="number" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="40000">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Điều Kiện</label>
-                                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Mua từ 10 sản phẩm">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button type="button" onclick="addPricePolicy()" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"/>
-                        </svg>
-                        Thêm Chính Sách Giá
-                    </button>
-                </div>
+            <!-- Variants Table -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <input type="checkbox" class="rounded border-gray-300">
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hình ảnh</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mã SKU</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thuộc tính</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Giá bán</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Giá nhập</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tồn kho</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Có thể bán</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Trạng thái</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <!-- Variant 1 -->
+                        <tr class="hover:bg-gray-50 cursor-pointer" onclick="toggleVariantDetail('variant1')">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <input type="checkbox" class="rounded border-gray-300" onclick="event.stopPropagation()">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="w-12 h-12 bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop" alt="Variant" class="w-full h-full object-cover">
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">IP15PM-128-TN</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">128GB - Titan Tự Nhiên</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">34.990.000 ₫</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-600">29.990.000 ₫</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-orange-600">156</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-green-600">131</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">Đang bán</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <div class="flex items-center space-x-2" onclick="event.stopPropagation()">
+                                    <button class="text-blue-600 hover:text-blue-900" title="Chỉnh sửa">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-900" title="Nhập kho">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-900" title="Xóa">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Variant Detail Row -->
+                        <tr id="variant1-detail" class="hidden bg-blue-50">
+                            <td colspan="10" class="px-6 py-4">
+                                <div class="bg-white rounded-lg p-4 border border-blue-200">
+                                    <h4 class="font-medium text-gray-900 mb-4">Chi Tiết Tồn Kho Theo Chi Nhánh</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN Hà Nội</h5>
+                                                <span class="text-xs text-gray-500">HN001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium">45</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">8</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-green-600">37</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN TP.HCM</h5>
+                                                <span class="text-xs text-gray-500">HCM001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium">62</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">12</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-green-600">50</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN Đà Nẵng</h5>
+                                                <span class="text-xs text-gray-500">DN001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium">28</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">3</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-green-600">25</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN Cần Thơ</h5>
+                                                <span class="text-xs text-gray-500">CT001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium">21</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">2</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-green-600">19</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <button class="bg-primary text-white px-3 py-1.5 rounded text-sm hover:bg-blue-600 transition-colors">
+                                            Nhập kho
+                                        </button>
+                                        <button class="bg-green-600 text-white px-3 py-1.5 rounded text-sm hover:bg-green-700 transition-colors">
+                                            Xuất kho
+                                        </button>
+                                        <button class="bg-orange-600 text-white px-3 py-1.5 rounded text-sm hover:bg-orange-700 transition-colors">
+                                            Chuyển kho
+                                        </button>
+                                        <button class="border border-gray-300 text-gray-700 px-3 py-1.5 rounded text-sm hover:bg-gray-50 transition-colors">
+                                            Xem lịch sử
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Variant 2 -->
+                        <tr class="hover:bg-gray-50 cursor-pointer" onclick="toggleVariantDetail('variant2')">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <input type="checkbox" class="rounded border-gray-300" onclick="event.stopPropagation()">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="w-12 h-12 bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=100&h=100&fit=crop" alt="Variant" class="w-full h-full object-cover">
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">IP15PM-256-TX</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">256GB - Titan Xanh</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">38.990.000 ₫</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-600">33.990.000 ₫</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-orange-600">89</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-green-600">74</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">Đang bán</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <div class="flex items-center space-x-2" onclick="event.stopPropagation()">
+                                    <button class="text-blue-600 hover:text-blue-900" title="Chỉnh sửa">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-900" title="Nhập kho">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-900" title="Xóa">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Variant 2 Detail Row -->
+                        <tr id="variant2-detail" class="hidden bg-blue-50">
+                            <td colspan="10" class="px-6 py-4">
+                                <div class="bg-white rounded-lg p-4 border border-blue-200">
+                                    <h4 class="font-medium text-gray-900 mb-4">Chi Tiết Tồn Kho Theo Chi Nhánh</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN Hà Nội</h5>
+                                                <span class="text-xs text-gray-500">HN001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium">25</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">5</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-green-600">20</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN TP.HCM</h5>
+                                                <span class="text-xs text-gray-500">HCM001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium">38</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">7</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-green-600">31</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN Đà Nẵng</h5>
+                                                <span class="text-xs text-gray-500">DN001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium">16</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">2</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-green-600">14</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN Cần Thơ</h5>
+                                                <span class="text-xs text-gray-500">CT001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium">10</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">1</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-green-600">9</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <button class="bg-primary text-white px-3 py-1.5 rounded text-sm hover:bg-blue-600 transition-colors">
+                                            Nhập kho
+                                        </button>
+                                        <button class="bg-green-600 text-white px-3 py-1.5 rounded text-sm hover:bg-green-700 transition-colors">
+                                            Xuất kho
+                                        </button>
+                                        <button class="bg-orange-600 text-white px-3 py-1.5 rounded text-sm hover:bg-orange-700 transition-colors">
+                                            Chuyển kho
+                                        </button>
+                                        <button class="border border-gray-300 text-gray-700 px-3 py-1.5 rounded text-sm hover:bg-gray-50 transition-colors">
+                                            Xem lịch sử
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Variant 3 -->
+                        <tr class="hover:bg-gray-50 cursor-pointer" onclick="toggleVariantDetail('variant3')">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <input type="checkbox" class="rounded border-gray-300" onclick="event.stopPropagation()">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="w-12 h-12 bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=100&h=100&fit=crop" alt="Variant" class="w-full h-full object-cover">
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">IP15PM-512-TT</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">512GB - Titan Trắng</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">44.990.000 ₫</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-600">39.990.000 ₫</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-orange-600">42</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-green-600">36</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">Đang bán</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <div class="flex items-center space-x-2" onclick="event.stopPropagation()">
+                                    <button class="text-blue-600 hover:text-blue-900" title="Chỉnh sửa">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-900" title="Nhập kho">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-900" title="Xóa">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Variant 3 Detail Row -->
+                        <tr id="variant3-detail" class="hidden bg-blue-50">
+                            <td colspan="10" class="px-6 py-4">
+                                <div class="bg-white rounded-lg p-4 border border-blue-200">
+                                    <h4 class="font-medium text-gray-900 mb-4">Chi Tiết Tồn Kho Theo Chi Nhánh</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN Hà Nội</h5>
+                                                <span class="text-xs text-gray-500">HN001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium">12</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">2</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-green-600">10</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN TP.HCM</h5>
+                                                <span class="text-xs text-gray-500">HCM001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium">18</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">3</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-green-600">15</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN Đà Nẵng</h5>
+                                                <span class="text-xs text-gray-500">DN001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium">8</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">1</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-green-600">7</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN Cần Thơ</h5>
+                                                <span class="text-xs text-gray-500">CT001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium">4</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">0</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-green-600">4</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <button class="bg-primary text-white px-3 py-1.5 rounded text-sm hover:bg-blue-600 transition-colors">
+                                            Nhập kho
+                                        </button>
+                                        <button class="bg-green-600 text-white px-3 py-1.5 rounded text-sm hover:bg-green-700 transition-colors">
+                                            Xuất kho
+                                        </button>
+                                        <button class="bg-orange-600 text-white px-3 py-1.5 rounded text-sm hover:bg-orange-700 transition-colors">
+                                            Chuyển kho
+                                        </button>
+                                        <button class="border border-gray-300 text-gray-700 px-3 py-1.5 rounded text-sm hover:bg-gray-50 transition-colors">
+                                            Xem lịch sử
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Variant 4 -->
+                        <tr class="hover:bg-gray-50 cursor-pointer" onclick="toggleVariantDetail('variant4')">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <input type="checkbox" class="rounded border-gray-300" onclick="event.stopPropagation()">
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="w-12 h-12 bg-gray-100 rounded-lg overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop" alt="Variant" class="w-full h-full object-cover">
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">IP15PM-1TB-TD</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">1TB - Titan Đen</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">52.990.000 ₫</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-600">47.990.000 ₫</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-red-600">8</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-green-600">6</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium">Sắp hết</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <div class="flex items-center space-x-2" onclick="event.stopPropagation()">
+                                    <button class="text-blue-600 hover:text-blue-900" title="Chỉnh sửa">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-900" title="Nhập kho">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-900" title="Xóa">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Variant 4 Detail Row -->
+                        <tr id="variant4-detail" class="hidden bg-blue-50">
+                            <td colspan="10" class="px-6 py-4">
+                                <div class="bg-white rounded-lg p-4 border border-blue-200">
+                                    <h4 class="font-medium text-gray-900 mb-4">Chi Tiết Tồn Kho Theo Chi Nhánh</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN Hà Nội</h5>
+                                                <span class="text-xs text-gray-500">HN001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium">3</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">1</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-green-600">2</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN TP.HCM</h5>
+                                                <span class="text-xs text-gray-500">HCM001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium">4</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">1</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-green-600">3</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN Đà Nẵng</h5>
+                                                <span class="text-xs text-gray-500">DN001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium">1</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">0</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-green-600">1</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-gray-50 rounded-lg p-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h5 class="font-medium text-gray-900">CN Cần Thơ</h5>
+                                                <span class="text-xs text-gray-500">CT001</span>
+                                            </div>
+                                            <div class="space-y-1 text-sm">
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Tồn kho:</span>
+                                                    <span class="font-medium text-red-600">0</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Đã đặt:</span>
+                                                    <span class="text-orange-600">0</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="text-gray-600">Có thể bán:</span>
+                                                    <span class="font-medium text-red-600">0</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <button class="bg-primary text-white px-3 py-1.5 rounded text-sm hover:bg-blue-600 transition-colors">
+                                            Nhập kho
+                                        </button>
+                                        <button class="bg-green-600 text-white px-3 py-1.5 rounded text-sm hover:bg-green-700 transition-colors">
+                                            Xuất kho
+                                        </button>
+                                        <button class="bg-orange-600 text-white px-3 py-1.5 rounded text-sm hover:bg-orange-700 transition-colors">
+                                            Chuyển kho
+                                        </button>
+                                        <button class="border border-gray-300 text-gray-700 px-3 py-1.5 rounded text-sm hover:bg-gray-50 transition-colors">
+                                            Xem lịch sử
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
-            <!-- Hình Ảnh Sản Phẩm -->
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6">
-                <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
-                    </svg>
-                    Hình Ảnh Sản Phẩm
-                </h2>
-                
-                <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-primary transition-colors">
-                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-                        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <div class="mt-4">
-                        <label class="cursor-pointer">
-                            <span class="mt-2 block text-sm font-medium text-gray-900">Tải lên hình ảnh sản phẩm</span>
-                            <input type="file" class="sr-only" multiple accept="image/*">
-                        </label>
-                        <p class="mt-1 text-sm text-gray-500">PNG, JPG, GIF tối đa 10MB mỗi file</p>
+            <!-- Pagination -->
+            <div class="px-6 py-4 border-t border-gray-200">
+                <div class="flex items-center justify-between">
+                    <div class="text-sm text-gray-700">
+                        Hiển thị <span class="font-medium">1</span> đến <span class="font-medium">4</span> trong tổng số <span class="font-medium">4</span> phiên bản
                     </div>
-                </div>
-                
-                <div class="mt-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4" id="imagePreview">
-                    <!-- Preview images will be added here -->
-                </div>
-            </div>
-
-            <!-- Quản Lý Kho -->
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6">
-                <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"/>
-                        <path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/>
-                    </svg>
-                    Quản Lý Kho Hàng
-                </h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Tồn Kho Ban Đầu</label>
-                        <input type="number" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="100">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Giá Vốn</label>
-                        <input type="number" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="30000">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Kho Lưu Trữ</label>
-                        <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                            <option>Kho chính</option>
-                            <option>Kho phụ</option>
-                            <option>Kho online</option>
-                        </select>
+                    <div class="flex items-center space-x-2">
+                        <button class="px-3 py-1 border border-gray-300 rounded text-sm text-gray-500 cursor-not-allowed">
+                            Trước
+                        </button>
+                        <button class="px-3 py-1 bg-primary text-white rounded text-sm">
+                            1
+                        </button>
+                        <button class="px-3 py-1 border border-gray-300 rounded text-sm text-gray-500 cursor-not-allowed">
+                            Sau
+                        </button>
                     </div>
                 </div>
             </div>
-
-            <!-- Thuộc Tính Sản Phẩm -->
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6">
-                <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-xl font-semibold text-gray-900 flex items-center">
-                        <svg class="w-5 h-5 mr-2 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"/>
-                        </svg>
-                        Thuộc Tính Sản Phẩm
-                    </h2>
-                    <label class="flex items-center cursor-pointer">
-                        <input type="checkbox" class="sr-only" onchange="toggleAttributes()">
-                        <div class="relative">
-                            <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
-                            <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
-                        </div>
-                        <span class="ml-3 text-gray-700 font-medium">Bật thuộc tính</span>
-                    </label>
-                </div>
-                
-                <div id="attributesSection" class="hidden space-y-4">
-                    <div class="border border-gray-200 rounded-lg p-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Tên Thuộc Tính</label>
-                                <input type="text" value="Size" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Giá Trị (mỗi dòng một giá trị)</label>
-                                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="3" placeholder="S&#10;M&#10;L"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button type="button" onclick="addAttribute()" class="text-primary hover:text-blue-700 font-medium flex items-center">
-                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"/>
-                        </svg>
-                        Thêm thuộc tính
-                    </button>
-                </div>
-            </div>
-
-            <!-- Đơn Vị Quy Đổi -->
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6">
-                <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-xl font-semibold text-gray-900 flex items-center">
-                        <svg class="w-5 h-5 mr-2 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-3 3a1 1 0 100 2h.01a1 1 0 100-2H10zm-4 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm1-4a1 1 0 100 2h.01a1 1 0 100-2H7zm2 0a1 1 0 100 2h.01a1 1 0 100-2H9zm2 0a1 1 0 100 2h.01a1 1 0 100-2H11z"/>
-                        </svg>
-                        Đơn Vị Quy Đổi
-                    </h2>
-                    <label class="flex items-center cursor-pointer">
-                        <input type="checkbox" class="sr-only" onchange="toggleConversion()">
-                        <div class="relative">
-                            <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
-                            <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
-                        </div>
-                        <span class="ml-3 text-gray-700 font-medium">Bật quy đổi</span>
-                    </label>
-                </div>
-                
-                <div id="conversionSection" class="hidden space-y-4">
-                    <div class="border border-gray-200 rounded-lg p-4">
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Đơn Vị Gốc</label>
-                                <input type="text" value="Thùng" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Đơn Vị Quy Đổi</label>
-                                <input type="text" value="Chai" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Tỷ Lệ Quy Đổi</label>
-                                <input type="number" value="24" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button type="button" onclick="addConversion()" class="text-primary hover:text-blue-700 font-medium flex items-center">
-                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"/>
-                        </svg>
-                        Thêm quy đổi
-                    </button>
-                </div>
-            </div>
-
-            <!-- Cài Đặt Khác -->
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6">
-                <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"/>
-                    </svg>
-                    Cài Đặt Khác
-                </h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                    <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
-                        <div>
-                            <h3 class="font-medium text-gray-900">Trạng Thái</h3>
-                            <p class="text-sm text-gray-500">Kích hoạt sản phẩm</p>
-                        </div>
-                        <label class="flex items-center cursor-pointer">
-                            <input type="checkbox" class="sr-only" checked>
-                            <div class="relative">
-                                <div class="block bg-primary w-14 h-8 rounded-full"></div>
-                                <div class="dot absolute right-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
-                            </div>
-                        </label>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Thuế (%)</label>
-                        <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-                            <option value="0">0% - Không thuế</option>
-                            <option value="5">5% - Thuế giảm</option>
-                            <option value="10">10% - Thuế tiêu chuẩn</option>
-                            <option value="15">15% - Thuế cao</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 pt-6">
-                <button type="button" class="flex-1 bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300 transition-colors font-medium">
-                    Hủy
-                </button>
-                <button type="button" class="flex-1 bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors font-medium">
-                    Lưu Nháp
-                </button>
-                <button type="submit" class="flex-1 bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                    Thêm Sản Phẩm
-                </button>
-            </div>
-        </form>
+        </div>
     </div>
 
     <script>
-        function toggleDescription() {
-            const box = document.getElementById('descriptionBox');
-            box.classList.toggle('hidden');
-        }
-        
-        function togglePricePolicy() {
-            const section = document.getElementById('pricePolicySection');
-            section.classList.toggle('hidden');
-        }
-        
-        function addPricePolicy() {
-            // Add new price policy row logic here
-            console.log('Adding new price policy');
-        }
-        
-        function toggleAttributes() {
-            const section = document.getElementById('attributesSection');
-            const toggle = event.target;
-            const dot = toggle.parentElement.querySelector('.dot');
-            const bg = toggle.parentElement.querySelector('div');
+        function toggleVariantDetail(variantId) {
+            const detailRow = document.getElementById(variantId + '-detail');
+            const isHidden = detailRow.classList.contains('hidden');
             
-            section.classList.toggle('hidden');
+            // Hide all detail rows first
+            document.querySelectorAll('[id$="-detail"]').forEach(row => {
+                row.classList.add('hidden');
+            });
             
-            if (section.classList.contains('hidden')) {
-                dot.classList.remove('translate-x-6');
-                bg.classList.remove('bg-primary');
-                bg.classList.add('bg-gray-600');
-            } else {
-                dot.classList.add('translate-x-6');
-                bg.classList.remove('bg-gray-600');
-                bg.classList.add('bg-primary');
+            // Show the clicked one if it was hidden
+            if (isHidden) {
+                detailRow.classList.remove('hidden');
             }
-        }
-        
-        function addAttribute() {
-            // Add new attribute logic here
-            console.log('Adding new attribute');
-        }
-        
-        function toggleConversion() {
-            const section = document.getElementById('conversionSection');
-            const toggle = event.target;
-            const dot = toggle.parentElement.querySelector('.dot');
-            const bg = toggle.parentElement.querySelector('div');
-            
-            section.classList.toggle('hidden');
-            
-            if (section.classList.contains('hidden')) {
-                dot.classList.remove('translate-x-6');
-                bg.classList.remove('bg-primary');
-                bg.classList.add('bg-gray-600');
-            } else {
-                dot.classList.add('translate-x-6');
-                bg.classList.remove('bg-gray-600');
-                bg.classList.add('bg-primary');
-            }
-        }
-        
-        function addConversion() {
-            // Add new conversion logic here
-            console.log('Adding new conversion');
         }
     </script>
 </body>
