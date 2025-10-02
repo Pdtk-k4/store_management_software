@@ -79,7 +79,7 @@ const CreateProduct: React.FC = () => {
   }
 
   return (
-    <div className="space-y-2 bg-slate-100 shadow p-4 border-b mb-4 rounded-md">
+    <div className="space-y-2 shadow p-4 lg:p-6 border-b mb-4 rounded-md">
       <div className="bg-white shadow p-4 border-b mb-4 rounded max-w-10xl mx-auto ">
         <h3 className="col-span-3 text-left m-px">Thêm sản phẩm mới </h3>
         <p className="col-span-3 text-left m-px">

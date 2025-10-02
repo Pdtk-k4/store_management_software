@@ -53,7 +53,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
 
         {/* Content */}
         <Content
-          className="p-4 lg:p-6 bg-[rgba(240,241,241,1)]"
+          className="bg-[rgba(240,241,241,1)]"
           style={{
             borderRadius: borderRadiusLG,
           }}
