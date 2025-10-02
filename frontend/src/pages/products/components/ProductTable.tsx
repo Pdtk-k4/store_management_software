@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Table, Button, Select, Space, Popconfirm, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
+import { Link } from "react-router-dom";
 
 interface Variation {
   id: number;
@@ -79,7 +80,12 @@ const ProductTable: React.FC = () => {
       key: "name",
       render: (text, record) => (
         <div>
-          <div className="font-medium">{text}</div>
+          <Link
+            to={`/products/${record.id}`}
+            className="font-medium text-blue-600 hover:underline"
+          >
+            {text}
+          </Link>
           <div className="text-xs text-gray-500">ID: {record.id}</div>
         </div>
       ),
