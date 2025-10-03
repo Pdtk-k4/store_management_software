@@ -1,6 +1,7 @@
 import React from "react";
 import { FiChevronLeft } from "react-icons/fi";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import ProductVariants from "./ProductVariants";
 const ProductInformation: React.FC = () => {
   return (
     <div>
@@ -87,25 +88,38 @@ const ProductInformation: React.FC = () => {
                     Khay cát
                   </span>
                 </div>
-              </div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div>
-                  <p>Mã sản phẩm</p>
-                  <p className="font-medium">PVNS240</p>
-                </div>
-                <div>
-                  <p>Mã sản phẩm</p>
-                  <p className="font-medium">PVNS240</p>
-                </div>
-                <div>
-                  <p>Mã sản phẩm</p>
-                  <p className="font-medium">PVNS240</p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+                  <div>
+                    <p>Mã sản phẩm</p>
+                    <p className="font-medium">PVNS240</p>
+                  </div>
+                  <div>
+                    <p>Danh mục</p>
+                    <p className="font-medium">Cát mèo</p>
+                  </div>
+                  <div>
+                    <p>Thương hiệu</p>
+                    <p className="font-medium">Aboss</p>
+                  </div>
+                  <div>
+                    <p>Ngày tạo</p>
+                    <p className="font-medium">01/01/2023</p>
+                  </div>
+                  <div>
+                    <p>Người tạo</p>
+                    <p className="font-medium">Nguyễn Văn A</p>
+                  </div>
+                  <div>
+                    <p>Ngày cập nhật cuối</p>
+                    <p className="font-medium">01/01/2023</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <ProductVariants className="bg-white shadow-md rounded-md border p-4" />
     </div>
   );
 };
