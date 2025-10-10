@@ -1,10 +1,16 @@
 import React from "react";
+import { useState } from "react";
 import { RiAddLine } from "react-icons/ri";
 import { BiEdit } from "react-icons/bi";
 import { MdAdd } from "react-icons/md";
+
 import { RiDeleteBin5Line } from "react-icons/ri";
 
 const ProductVariants: React.FC = () => {
+  const [isTableVisible, setIsTableVisible] = useState(false);
+  const [variantDetails, setVariantDetails] = useState(false);
+  const [expanded, setExpanded] = useState<number | null>(null);
+
   return (
     <div className="p-4 bg-white shadow-md rounded-md border m-4">
       {/* Header productDetails */}
@@ -68,7 +74,11 @@ const ProductVariants: React.FC = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white">
+              <tr
+                className="bg-white"
+                onClick={() => setIsTableVisible(!isTableVisible)}
+                style={{ cursor: "pointer" }}
+              >
                 <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500 overflow-hidden text-ellipsis truncate">
                   <input
                     type="checkbox"
@@ -127,153 +137,246 @@ const ProductVariants: React.FC = () => {
                   </div>
                 </td>
               </tr>
-              <tr id="variant-details" className=" bg-blue-50">
-                <td colSpan={10} className="p-4">
-                  <div className="text-sm text-gray-500">
-                    <div className="bg-white p-4 rounded-md border-blue-200 shadow-sm">
-                      <p className="font-medium">
-                        Chi tiết tồn kho theo chi nhánh
-                      </p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
-                        <div className="bg-gray-100 border p-2 rounded">
-                          <div className=" flex justify-between items-center">
-                            <p className="font-bold text-black">Chi nhánh A</p>
-                            <p>HN001</p>
+              {isTableVisible && (
+                <tr id="variant-details" className=" bg-blue-50">
+                  <td colSpan={10} className="p-4">
+                    <div className="text-sm text-gray-500">
+                      <div className="bg-white p-4 rounded-md border-blue-200 shadow-sm">
+                        <p className="font-medium">
+                          Chi tiết tồn kho theo chi nhánh
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
+                          <div className="bg-gray-100 border p-2 rounded">
+                            <div className=" flex justify-between items-center">
+                              <p className="font-bold text-black">
+                                Chi nhánh A
+                              </p>
+                              <p>HN001</p>
+                            </div>
+                            <div className="space-y-1 text-sm text-gray-500">
+                              <div className="bg-gray-100 border p-2 rounded flex justify-between items-center">
+                                <span>Tồn kho</span>
+                                <span className="font-medium text-gray-600">
+                                  30
+                                </span>
+                              </div>
+                              <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
+                                <span>Đã đặt</span>
+                                <span className="font-medium  text-red-600">
+                                  10
+                                </span>
+                              </div>
+                              <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
+                                <span>Có thể bán</span>
+                                <span className="text-green-600 font-medium ">
+                                  30
+                                </span>
+                              </div>
+                            </div>
                           </div>
-                          <div className="space-y-1 text-sm text-gray-500">
-                            <div className="bg-gray-100 border p-2 rounded flex justify-between items-center">
-                              <span>Tồn kho</span>
-                              <span className="font-medium text-gray-600">
-                                30
-                              </span>
-                            </div>
-                            <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
-                              <span>Đã đặt</span>
-                              <span className="font-medium  text-red-600">
-                                10
-                              </span>
-                            </div>
-                            <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
-                              <span>Có thể bán</span>
-                              <span className="text-green-600 font-medium ">
-                                30
-                              </span>
-                            </div>
-                          </div>
-                        </div>
 
-                        <div className="bg-gray-100 border p-2 rounded">
-                          <div className=" flex justify-between items-center">
-                            <p className="font-bold text-black">
-                              Chi nhánh TP.HCM
-                            </p>
-                            <p>HN001</p>
+                          <div className="bg-gray-100 border p-2 rounded">
+                            <div className=" flex justify-between items-center">
+                              <p className="font-bold text-black">
+                                Chi nhánh TP.HCM
+                              </p>
+                              <p>HN001</p>
+                            </div>
+                            <div className="space-y-1 text-sm text-gray-500">
+                              <div className="bg-gray-100 border p-2 rounded flex justify-between items-center">
+                                <span>Tồn kho</span>
+                                <span className="font-medium text-gray-600">
+                                  30
+                                </span>
+                              </div>
+                              <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
+                                <span>Đã đặt</span>
+                                <span className="font-medium  text-red-600">
+                                  10
+                                </span>
+                              </div>
+                              <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
+                                <span>Có thể bán</span>
+                                <span className="text-green-600 font-medium ">
+                                  30
+                                </span>
+                              </div>
+                            </div>
                           </div>
-                          <div className="space-y-1 text-sm text-gray-500">
-                            <div className="bg-gray-100 border p-2 rounded flex justify-between items-center">
-                              <span>Tồn kho</span>
-                              <span className="font-medium text-gray-600">
-                                30
-                              </span>
+                          <div className="bg-gray-100 border p-2 rounded">
+                            <div className=" flex justify-between items-center">
+                              <p className="font-bold text-black">
+                                Chi nhánh TP.Đà Nẵng
+                              </p>
+                              <p>HN001</p>
                             </div>
-                            <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
-                              <span>Đã đặt</span>
-                              <span className="font-medium  text-red-600">
-                                10
-                              </span>
+                            <div className="space-y-1 text-sm text-gray-500">
+                              <div className="bg-gray-100 border p-2 rounded flex justify-between items-center">
+                                <span>Tồn kho</span>
+                                <span className="font-medium text-gray-600">
+                                  30
+                                </span>
+                              </div>
+                              <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
+                                <span>Đã đặt</span>
+                                <span className="font-medium  text-red-600">
+                                  10
+                                </span>
+                              </div>
+                              <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
+                                <span>Có thể bán</span>
+                                <span className="text-green-600 font-medium ">
+                                  30
+                                </span>
+                              </div>
                             </div>
-                            <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
-                              <span>Có thể bán</span>
-                              <span className="text-green-600 font-medium ">
-                                30
-                              </span>
+                          </div>
+                          <div className="bg-gray-100 border p-2 rounded">
+                            <div className=" flex justify-between items-center">
+                              <p className="font-bold text-black">
+                                Chi nhánh TP.Hải Phòng
+                              </p>
+                              <p>HN001</p>
+                            </div>
+                            <div className="space-y-1 text-sm text-gray-500">
+                              <div className="bg-gray-100 border p-2 rounded flex justify-between items-center">
+                                <span>Tồn kho</span>
+                                <span className="font-medium text-gray-600">
+                                  30
+                                </span>
+                              </div>
+                              <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
+                                <span>Đã đặt</span>
+                                <span className="font-medium  text-red-600">
+                                  10
+                                </span>
+                              </div>
+                              <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
+                                <span>Có thể bán</span>
+                                <span className="text-green-600 font-medium ">
+                                  30
+                                </span>
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <div className="bg-gray-100 border p-2 rounded">
-                          <div className=" flex justify-between items-center">
-                            <p className="font-bold text-black">
-                              Chi nhánh TP.Đà Nẵng
-                            </p>
-                            <p>HN001</p>
-                          </div>
-                          <div className="space-y-1 text-sm text-gray-500">
-                            <div className="bg-gray-100 border p-2 rounded flex justify-between items-center">
-                              <span>Tồn kho</span>
-                              <span className="font-medium text-gray-600">
-                                30
-                              </span>
-                            </div>
-                            <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
-                              <span>Đã đặt</span>
-                              <span className="font-medium  text-red-600">
-                                10
-                              </span>
-                            </div>
-                            <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
-                              <span>Có thể bán</span>
-                              <span className="text-green-600 font-medium ">
-                                30
-                              </span>
-                            </div>
-                          </div>
+                        <div className=" border p-2 rounded flex items-center justify-start">
+                          <button className=" bg-blue-500 p-2 rounded-md border-none hover:bg-blue-600 mr-2">
+                            <span className="text-white">Nhập kho</span>
+                          </button>
+                          <button className=" bg-green-500 p-2 rounded-md border-none hover:bg-green-600 mr-2">
+                            <span className="text-white">Xuất kho</span>
+                          </button>
+                          <button className=" bg-orange-500 p-2 rounded-md border-none hover:bg-orange-600 mr-2">
+                            <span className="text-white">Chuyển kho</span>
+                          </button>
+                          <button
+                            className=" bg-gray-100 p-2 rounded-md border-none hover:bg-gray-200 mr-2"
+                            onClick={() => setVariantDetails(!variantDetails)}
+                            style={{ cursor: "pointer" }}
+                          >
+                            <span className="text-black">Xem lịch sử</span>
+                          </button>
                         </div>
-                        <div className="bg-gray-100 border p-2 rounded">
-                          <div className=" flex justify-between items-center">
-                            <p className="font-bold text-black">
-                              Chi nhánh TP.Hải Phòng
-                            </p>
-                            <p>HN001</p>
-                          </div>
-                          <div className="space-y-1 text-sm text-gray-500">
-                            <div className="bg-gray-100 border p-2 rounded flex justify-between items-center">
-                              <span>Tồn kho</span>
-                              <span className="font-medium text-gray-600">
-                                30
-                              </span>
-                            </div>
-                            <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
-                              <span>Đã đặt</span>
-                              <span className="font-medium  text-red-600">
-                                10
-                              </span>
-                            </div>
-                            <div className="bg-gray-100 font-medium  border p-2 rounded flex justify-between items-center">
-                              <span>Có thể bán</span>
-                              <span className="text-green-600 font-medium ">
-                                30
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className=" border p-2 rounded flex items-center justify-start">
-                        <button className=" bg-blue-500 p-2 rounded-md border-none hover:bg-blue-600 mr-2">
-                          <span className="text-white">Nhập kho</span>
-                        </button>
-                        <button className=" bg-green-500 p-2 rounded-md border-none hover:bg-green-600 mr-2">
-                          <span className="text-white">Xuất kho</span>
-                        </button>
-                        <button className=" bg-orange-500 p-2 rounded-md border-none hover:bg-orange-600 mr-2">
-                          <span className="text-white">Chuyển kho</span>
-                        </button>
-                        <button className=" bg-gray-100 p-2 rounded-md border-none hover:bg-gray-200 mr-2">
-                          <span className="text-black">Xem lịch sử</span>
-                        </button>
                       </div>
                     </div>
-                  </div>
-                </td>
-              </tr>
-              <tr id="variant-details" className=" bg-blue-50">
-                <td colSpan={10} className="p-4">
-                  <table>
-                    <tbody>
-                      <tr></tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
+                  </td>
+                </tr>
+              )}
+              {variantDetails && (
+                <tr className=" bg-blue-50 ">
+                  <td colSpan={10} className="p-4">
+                    <div>
+                      <table className="min-w-full divide-y divide-gray-200">
+                        <thead className="bg-gray-50">
+                          <tr>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              <input
+                                type="checkbox"
+                                className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                              />
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Hình ảnh
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Mã SKU
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Thuộc tính
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Giá bán
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Giá nhập
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Tồn kho
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Có thể bán
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                              Trạng thái
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="bg-white">
+                            <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500 overflow-hidden text-ellipsis truncate">
+                              <input
+                                type="checkbox"
+                                className="rounded border-gray-300 text-blue-600 focus:ring-blue-500 "
+                              />
+                            </td>
+                            <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500 overflow-hidden text-ellipsis truncate">
+                              <div className="text-sm font-medium text-gray-900">
+                                Hình ảnh
+                              </div>
+                            </td>
+                            <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500 overflow-hidden text-ellipsis truncate">
+                              <div className="text-sm font-medium text-gray-900">
+                                CATABOS
+                              </div>
+                            </td>
+                            <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500 overflow-hidden text-ellipsis truncate">
+                              <div className="text-sm font-medium text-gray-900">
+                                Siêu thấm hút
+                              </div>
+                            </td>
+                            <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500 overflow-hidden text-ellipsis truncate">
+                              <div className="text-sm font-medium text-gray-900">
+                                150,000đ
+                              </div>
+                            </td>
+                            <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500 overflow-hidden text-ellipsis truncate">
+                              <div className="text-sm font-medium text-gray-900">
+                                120,000đ
+                              </div>
+                            </td>
+                            <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500 overflow-hidden text-ellipsis truncate">
+                              <div className="text-sm font-medium text-gray-900">
+                                100
+                              </div>
+                            </td>
+                            <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500 overflow-hidden text-ellipsis truncate">
+                              <div className="text-sm font-medium text-gray-900">
+                                80
+                              </div>
+                            </td>
+                            <td className="py-4 px-6 whitespace-nowrap text-sm text-gray-500 overflow-hidden text-ellipsis truncate">
+                              <div className="text-sm font-medium text-gray-900">
+                                Đang bán
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
